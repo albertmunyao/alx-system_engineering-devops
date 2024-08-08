@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
-# Repetition Token #1
-exp_pattern = /hb?tn/
+# Match "hbtn, hbttn, hbtttn, hbttttn, hbtttttn"
+exp_pattern = /hbt{2,5}n/
 inp_str = ARGV[0]
 matches = inp_str.scan(exp_pattern)
 puts matches.join
