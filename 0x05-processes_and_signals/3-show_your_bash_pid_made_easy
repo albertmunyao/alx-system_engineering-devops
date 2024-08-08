@@ -1,5 +1,19 @@
-#!/usr/bin/env bash
-# Displays a list of processes connected to bash
-# shellcheck disable=SC2009
+#!/bin/bash
 
-ps -auxf | grep -i bash
+# Get the PID of the current script
+script_pid=$$
+
+# Print the PID and process name for processes containing "bash"
+for pid in /proc/[0-9]*; do
+    pid=${pid#/proc/}
+    if [ -f "/proc/$pid/comm" ]; then
+        pname=$(cat "/proc/$pid/comm")
+        if [[ $pname == *bash* ]]; then
+            # Exclude the PID of the current script
+            if [ "$pid" -ne "$script_pid" ]; then
+                echo "$pid $pname"
+            fi
+        fi
+    fi
+done
+
