@@ -1,19 +1,16 @@
 #!/usr/bin/env bash
-# Displays "Best School" 10 times, with an additional "Hi" on the 9th iteration using a while loop and an if stastement
+# Displays best school 10 times using an then on the 9th iteration, displays "Hi" instead of "Best School"
 
-count=1
-while [ $count -le 10]
+i=0
+
+while [ $i -lt 10 ]
 do
+	if [ $i -eq 9 ]
+	then
+		echo "Hi"
+	fi
 
-if [ $count -eq 9]; then
-echo "Best School"
-echo "Hi"
-
-else
-echo "Best School"
-
-fi
-count=$((count + 1))
-
+	echo "Best School"
+	(( i++))
 done
 
