@@ -1,6 +1,5 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
+# Displays a list of processes connected to bash
 # shellcheck disable=SC2009
 
-ps aux | grep '[b]ash'
-
+ps -auxf | grep -i bash
