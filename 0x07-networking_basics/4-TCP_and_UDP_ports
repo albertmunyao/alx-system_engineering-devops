@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Displays a list of listening ports as well as PID of the program
+# To which each socket belongs
 
-# Display listening ports with PID and program name
-sudo lsof -i -P -n | grep LISTEN
+netstat -lp
 
